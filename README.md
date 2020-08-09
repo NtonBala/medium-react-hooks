@@ -74,3 +74,5 @@ Project uses absolute paths for imports and PascalCase naming convention for top
 Project uses Prettier, customizable settings are placed in <code>.prettierrc</code> file. For more information about installing Prettier in your editor of choice read <em>docs -> Editors section</em>: https://prettier.io/docs/en/editors.html. To get know about customizing configuration, read <em>docs -> Configure Prettier -> Configuration File section</em>: https://prettier.io/docs/en/configuration.html. Configuration options: https://prettier.io/docs/en/options.html.
 
 As for base, project uses this site: http://angular.realworld.io/.
+
+App is deployed on GitHub Pages: https://ntonbala.github.io/medium-react-hooks/.
