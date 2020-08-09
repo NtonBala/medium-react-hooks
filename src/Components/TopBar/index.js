@@ -7,9 +7,11 @@ export const TopBar = () => {
   return (
     <nav className="navbar navbar-light">
       <div className="container">
-        <Link to={routes.main} className="navbar-brand">
-          Medium
-        </Link>
+        <h1>
+          <Link to={routes.main} className="navbar-brand">
+            Medium
+          </Link>
+        </h1>
 
         <ul className="nav navbar-nav pull-xs-right">
           <li className="nav-item">
