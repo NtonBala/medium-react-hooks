@@ -72,3 +72,5 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 Project uses absolute paths for imports and PascalCase naming convention for top-level directories. Though, relative path is still used for sibling files and importing closely related child components. Read more here: https://medium.com/hackernoon/absolute-imports-with-create-react-app-4c6cfb66c35d.
 
 Project uses Prettier, customizable settings are placed in <code>.prettierrc</code> file. For more information about installing Prettier in your editor of choice read <em>docs -> Editors section</em>: https://prettier.io/docs/en/editors.html. To get know about customizing configuration, read <em>docs -> Configure Prettier -> Configuration File section</em>: https://prettier.io/docs/en/configuration.html. Configuration options: https://prettier.io/docs/en/options.html.
+
+As for base, project uses this site: http://angular.realworld.io/.
