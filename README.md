@@ -66,3 +66,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `yarn build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+### Notes
+Project uses absolute paths for imports and PascalCase naming convention for top-level directories. Though, relative path is still used for sibling files and importing closely related child components. Read more here: https://medium.com/hackernoon/absolute-imports-with-create-react-app-4c6cfb66c35d.
