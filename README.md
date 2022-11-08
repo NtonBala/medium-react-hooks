@@ -1,4 +1,8 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Medium clone on React Hooks
+
+This project relates to [Monster Lessons React Hooks course](https://monsterlessons.com/project/series/react-hooks-pishem-realnyj-proekt-s-nulya) and is Medium clone built on React Hooks.
+
+It was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
