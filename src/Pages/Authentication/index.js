@@ -1,7 +1,7 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
+import React from 'react'
+import {Link} from 'react-router-dom'
 
-import {routes} from 'Routes/constants';
+import {routes} from 'Routes/constants'
 
 export const Authentication = () => {
   return (
@@ -45,5 +45,5 @@ export const Authentication = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}

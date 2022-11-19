@@ -1,7 +1,7 @@
-import React from 'react';
-import {Link, NavLink} from 'react-router-dom';
+import React from 'react'
+import {Link, NavLink} from 'react-router-dom'
 
-import {routes} from 'Routes/constants';
+import {routes} from 'Routes/constants'
 
 export const TopBar = () => {
   return (
@@ -34,5 +34,5 @@ export const TopBar = () => {
         </ul>
       </div>
     </nav>
-  );
-};
+  )
+}

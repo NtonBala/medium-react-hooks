@@ -1,9 +1,9 @@
-import React from 'react';
-import {Switch, Route} from 'react-router-dom';
+import React from 'react'
+import {Switch, Route} from 'react-router-dom'
 
-import {GlobalFeed, Article, Authentication} from 'Pages';
+import {GlobalFeed, Article, Authentication} from 'Pages'
 
-import {routes} from './constants';
+import {routes} from './constants'
 
 export const Routes = () => {
   return (
@@ -13,5 +13,5 @@ export const Routes = () => {
       <Route path={routes.register} component={Authentication} />
       <Route path={`${routes.articles}/:slug`} component={Article} />
     </Switch>
-  );
-};
+  )
+}

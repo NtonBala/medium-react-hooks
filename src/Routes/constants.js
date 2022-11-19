@@ -3,4 +3,4 @@ export const routes = Object.freeze({
   articles: '/articles',
   login: '/login',
   register: '/register',
-});
+})

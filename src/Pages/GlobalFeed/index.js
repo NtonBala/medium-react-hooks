@@ -1,5 +1,5 @@
-import React from 'react';
+import React from 'react'
 
 export const GlobalFeed = () => {
-  return <div>Global Feed</div>;
-};
+  return <div>Global Feed</div>
+}
