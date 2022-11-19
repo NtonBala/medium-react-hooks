@@ -1,6 +1,24 @@
 # Medium clone on React Hooks
 
-This project relates to [Monster Lessons React Hooks course](https://monsterlessons.com/project/series/react-hooks-pishem-realnyj-proekt-s-nulya) and is Medium clone built on React Hooks.
+This project relates to [Monster Lessons React Hooks course](https://monsterlessons.com/project/series/react-hooks-pishem-realnyj-proekt-s-nulya) and is Medium clone built with React Hooks on [demo.productionready.io](https://demo.productionready.io/) example.
+
+Project uses absolute paths for imports via `jsconfig.json` file and Webpack (PascalCase) naming convention for top-level directories. To get more info read [here](https://medium.com/hackernoon/absolute-imports-with-create-react-app-4c6cfb66c35d).
+
+It's a SPA that uses browser router in development mode and hash router in production:
+
+```
+  const Router = process.env.NODE_ENV === 'development' ? BrowserRouter : HashRouter
+```
+
+Project is deployed on [GitHub Pages](https://pages.github.com/). Project URL is https://ntonbala.github.io/medium-react-hooks. To deploy the project run `yarn run deploy`.
+
+Project is styled via [Bootstrap 4](https://getbootstrap.com/). Styles, fonts and icons are downloaded and supplied through `link` tag in `index.html`:
+
+```
+  <link rel="stylesheet" href="%PUBLIC_URL%/css/main.css" />
+  <link href="%PUBLIC_URL%/css/fonts.css" rel="stylesheet" type="text/css" />
+  <link href="%PUBLIC_URL%/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+```
 
 It was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -70,13 +88,3 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `yarn build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-
-### Notes
-
-Project uses absolute paths for imports and PascalCase naming convention for top-level directories. Though, relative path is still used for sibling files and importing closely related child components. Read more here: https://medium.com/hackernoon/absolute-imports-with-create-react-app-4c6cfb66c35d.
-
-Project uses Prettier, customizable settings are placed in <code>.prettierrc</code> file. For more information about installing Prettier in your editor of choice read <em>docs -> Editors section</em>: https://prettier.io/docs/en/editors.html. To get know about customizing configuration, read <em>docs -> Configure Prettier -> Configuration File section</em>: https://prettier.io/docs/en/configuration.html. Configuration options: https://prettier.io/docs/en/options.html.
-
-As for base, project uses this site: http://angular.realworld.io/.
-
-App is deployed on GitHub Pages: https://ntonbala.github.io/medium-react-hooks/.
