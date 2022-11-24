@@ -1,18 +1,21 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import {useTranslation} from 'react-i18next'
 
 import {routes} from 'Routes/constants'
 
 export const Authentication = () => {
+  const {t} = useTranslation()
+
   return (
     <div className="auth-page">
       <div className="container page">
         <div className="row">
           <div className="col-md-6 offset-md-3 col-xs-12">
-            <h2 className="text-xs-center">Login</h2>
+            <h2 className="text-xs-center">{t('auth.login')}</h2>
 
             <p className="text-xs-center">
-              <Link to={routes.register}>Need an account?</Link>
+              <Link to={routes.register}>{t('auth.needAccount')}</Link>
             </p>
 
             <form>
@@ -21,7 +24,7 @@ export const Authentication = () => {
                   <input
                     className="form-control form-control-lg"
                     type="email"
-                    placeholder="Email"
+                    placeholder={t('common.email')}
                   />
                 </fieldset>
 
@@ -29,7 +32,7 @@ export const Authentication = () => {
                   <input
                     className="form-control form-control-lg"
                     type="password"
-                    placeholder="Password"
+                    placeholder={t('auth.password')}
                   />
                 </fieldset>
 
@@ -37,7 +40,7 @@ export const Authentication = () => {
                   className="btn btn-lg btn-primary pull-xs-right"
                   type="submit"
                 >
-                  Sign in
+                  {t('common.signIn')}
                 </button>
               </fieldset>
             </form>

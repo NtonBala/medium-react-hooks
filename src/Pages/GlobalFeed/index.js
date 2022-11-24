@@ -1,5 +1,8 @@
 import React from 'react'
+import {useTranslation} from 'react-i18next'
 
 export const GlobalFeed = () => {
-  return <div>Global Feed</div>
+  const {t} = useTranslation()
+
+  return <div>{t('globalFeed.title')}</div>
 }
