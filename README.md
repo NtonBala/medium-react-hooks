@@ -20,7 +20,7 @@ Project is styled via [Bootstrap 4](https://getbootstrap.com/). Styles, fonts an
   <link href="%PUBLIC_URL%/css/ionicons.min.css" rel="stylesheet" type="text/css" />
 ```
 
-Project is localized with [react-i18next](https://locize.com/blog/react-i18next/).
+Project is localized with [react-i18next](https://locize.com/blog/react-i18next/). Default language is English.
 
 It was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
