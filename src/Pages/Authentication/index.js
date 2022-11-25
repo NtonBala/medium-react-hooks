@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
 import {useTranslation} from 'react-i18next'
 
@@ -6,6 +6,13 @@ import {routes} from 'Routes/constants'
 
 export const Authentication = () => {
   const {t} = useTranslation()
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+  const handleSubmit = e => {
+    e.preventDefault()
+    console.log('data', email, password)
+  }
 
   return (
     <div className="auth-page">
@@ -18,13 +25,15 @@ export const Authentication = () => {
               <Link to={routes.register}>{t('auth.needAccount')}</Link>
             </p>
 
-            <form>
+            <form onSubmit={handleSubmit}>
               <fieldset>
                 <fieldset className="form-group">
                   <input
                     className="form-control form-control-lg"
                     type="email"
                     placeholder={t('common.email')}
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}
                   />
                 </fieldset>
 
@@ -33,6 +42,8 @@ export const Authentication = () => {
                     className="form-control form-control-lg"
                     type="password"
                     placeholder={t('auth.password')}
+                    value={password}
+                    onChange={e => setPassword(e.target.value)}
                   />
                 </fieldset>
 
