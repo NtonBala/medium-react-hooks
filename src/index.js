@@ -12,13 +12,11 @@ const Router =
 
 const App = () => {
   return (
-    <div className="App">
-      <Router>
-        <TopBar />
+    <Router>
+      <TopBar />
 
-        <Routes />
-      </Router>
-    </div>
+      <Routes />
+    </Router>
   )
 }
 
