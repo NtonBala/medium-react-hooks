@@ -6,6 +6,8 @@ import {ROUTES} from 'Routes'
 import {APP_NAME} from 'Constants'
 import {CurrentUserContext} from 'Contexts'
 
+import {Icon} from '../Icon'
+
 export const TopBar = () => {
   const {t} = useTranslation()
   const [{isLoggedIn, currentUser}] = useContext(CurrentUserContext)
@@ -60,6 +62,12 @@ export const TopBar = () => {
               </li>
             </>
           )}
+
+          <li className="nav-item">
+            <NavLink to="language-switch" className="nav-link">
+              <Icon component="Language" width={25} />
+            </NavLink>
+          </li>
         </ul>
       </div>
     </nav>
