@@ -6,6 +6,8 @@ import {routes} from 'Routes/constants'
 
 import {APP_NAME} from '../../constants'
 
+import {Icon} from '../Icon'
+
 export const TopBar = () => {
   const {t} = useTranslation()
 
@@ -34,6 +36,12 @@ export const TopBar = () => {
           <li className="nav-item">
             <NavLink to={routes.register} className="nav-link">
               {t('common.signUp')}
+            </NavLink>
+          </li>
+
+          <li className="nav-item">
+            <NavLink to="language-switch" className="nav-link">
+              <Icon component="Language" width={24} />
             </NavLink>
           </li>
         </ul>
