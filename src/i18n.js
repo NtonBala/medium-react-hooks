@@ -25,11 +25,12 @@ i18n
             signIn: 'Sign in',
             signUp: 'Sign up',
             home: 'Home',
+            password: 'Password',
+            username: 'Username',
           },
           auth: {
-            login: 'Login',
             needAccount: 'Need an account?',
-            password: 'Password',
+            haveAccount: 'Have an account?',
           },
           globalFeed: {
             title: 'Global Feed',
