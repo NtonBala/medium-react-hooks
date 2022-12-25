@@ -1,5 +1,5 @@
-import React, {useState} from 'react'
-import {Link} from 'react-router-dom'
+import React, {useState, useEffect} from 'react'
+import {Link, Redirect} from 'react-router-dom'
 import {useTranslation} from 'react-i18next'
 
 import {routes} from 'Routes/constants'
@@ -19,6 +19,7 @@ export const Authentication = props => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [username, setUsername] = useState('')
+  const [isSuccessfulSubmit, setIsSuccessfulSubmit] = useState(false)
 
   const handleSubmit = e => {
     const user = isLogin ? {email, password} : {username, email, password}
@@ -29,6 +30,15 @@ export const Authentication = props => {
       data: {user},
     })
   }
+
+  useEffect(() => {
+    if (!response) return
+
+    localStorage.setItem('token', response.user.token)
+    setIsSuccessfulSubmit(true)
+  }, [response])
+
+  if (isSuccessfulSubmit) return <Redirect to={routes.main} />
 
   return (
     <div className="auth-page">
