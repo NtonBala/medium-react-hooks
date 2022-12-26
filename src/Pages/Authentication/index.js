@@ -3,7 +3,7 @@ import {Link, Redirect} from 'react-router-dom'
 import {useTranslation} from 'react-i18next'
 
 import {routes} from 'Routes/constants'
-import {useFetch} from 'Hooks'
+import {useFetch, useLocalStorage} from 'Hooks'
 import {PATHS} from 'API/paths'
 
 export const Authentication = props => {
@@ -20,6 +20,9 @@ export const Authentication = props => {
   const [password, setPassword] = useState('')
   const [username, setUsername] = useState('')
   const [isSuccessfulSubmit, setIsSuccessfulSubmit] = useState(false)
+  const [token, setToken] = useLocalStorage('token')
+
+  console.log('token', token)
 
   const handleSubmit = e => {
     const user = isLogin ? {email, password} : {username, email, password}
@@ -34,9 +37,9 @@ export const Authentication = props => {
   useEffect(() => {
     if (!response) return
 
-    localStorage.setItem('token', response.user.token)
+    setToken(response.user.token)
     setIsSuccessfulSubmit(true)
-  }, [response])
+  }, [response, setToken])
 
   if (isSuccessfulSubmit) return <Redirect to={routes.main} />
 
