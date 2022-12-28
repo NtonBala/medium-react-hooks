@@ -1,10 +1,11 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import {Link, Redirect} from 'react-router-dom'
 import {useTranslation} from 'react-i18next'
 
 import {routes} from 'Routes/constants'
 import {useFetch, useLocalStorage} from 'Hooks'
 import {PATHS} from 'API/paths'
+import {CurrentUserContext} from 'Contexts'
 
 export const Authentication = props => {
   const {t} = useTranslation()
@@ -21,8 +22,9 @@ export const Authentication = props => {
   const [username, setUsername] = useState('')
   const [isSuccessfulSubmit, setIsSuccessfulSubmit] = useState(false)
   const [token, setToken] = useLocalStorage('token')
+  const [currentUser, setCurrentUser] = useContext(CurrentUserContext)
 
-  console.log('token', token)
+  console.log('currentUser ->', currentUser)
 
   const handleSubmit = e => {
     const user = isLogin ? {email, password} : {username, email, password}
@@ -39,7 +41,13 @@ export const Authentication = props => {
 
     setToken(response.user.token)
     setIsSuccessfulSubmit(true)
-  }, [response, setToken])
+    setCurrentUser(state => ({
+      ...state,
+      isLoggedIn: true,
+      isLoading: false,
+      currentUser: response.user,
+    }))
+  }, [response, setCurrentUser, setToken])
 
   if (isSuccessfulSubmit) return <Redirect to={routes.main} />
 

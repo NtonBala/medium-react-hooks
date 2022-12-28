@@ -4,6 +4,7 @@ import {BrowserRouter, HashRouter} from 'react-router-dom'
 
 import {TopBar} from 'Components'
 import {Routes} from 'Routes'
+import {CurrentUserProvider} from 'Contexts'
 
 import './i18n'
 
@@ -12,11 +13,13 @@ const Router =
 
 const App = () => {
   return (
-    <Router>
-      <TopBar />
+    <CurrentUserProvider>
+      <Router>
+        <TopBar />
 
-      <Routes />
-    </Router>
+        <Routes />
+      </Router>
+    </CurrentUserProvider>
   )
 }
 
