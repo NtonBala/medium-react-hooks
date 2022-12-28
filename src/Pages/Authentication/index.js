@@ -30,6 +30,10 @@ export const Authentication = props => {
     const user = isLogin ? {email, password} : {username, email, password}
 
     e.preventDefault()
+    setCurrentUser(state => ({
+      ...state,
+      isLoading: true,
+    }))
     doFetch({
       method: 'post',
       data: {user},
