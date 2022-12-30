@@ -6,6 +6,7 @@ import {routes} from 'Routes/constants'
 import {useFetch, useLocalStorage} from 'Hooks'
 import {PATHS} from 'API/paths'
 import {CurrentUserContext} from 'Contexts'
+import {BackendErrorMessages} from 'Components'
 
 export const Authentication = props => {
   const {t} = useTranslation()
@@ -21,10 +22,8 @@ export const Authentication = props => {
   const [password, setPassword] = useState('')
   const [username, setUsername] = useState('')
   const [isSuccessfulSubmit, setIsSuccessfulSubmit] = useState(false)
-  const [token, setToken] = useLocalStorage('token')
-  const [currentUser, setCurrentUser] = useContext(CurrentUserContext)
-
-  console.log('currentUser ->', currentUser)
+  const [, setToken] = useLocalStorage('token')
+  const [, setCurrentUser] = useContext(CurrentUserContext)
 
   const handleSubmit = e => {
     const user = isLogin ? {email, password} : {username, email, password}
@@ -67,6 +66,7 @@ export const Authentication = props => {
             </p>
 
             <form onSubmit={handleSubmit}>
+              {error && <BackendErrorMessages backendErrors={error.errors} />}
               <fieldset>
                 {!isLogin && (
                   <fieldset className="form-group">
