@@ -7,6 +7,7 @@ import {Routes} from 'Routes'
 import {CurrentUserProvider} from 'Contexts'
 
 import './i18n'
+import {CurrentUserChecker} from 'Components'
 
 const Router =
   process.env.NODE_ENV === 'development' ? BrowserRouter : HashRouter
@@ -14,11 +15,13 @@ const Router =
 const App = () => {
   return (
     <CurrentUserProvider>
-      <Router>
-        <TopBar />
+      <CurrentUserChecker>
+        <Router>
+          <TopBar />
 
-        <Routes />
-      </Router>
+          <Routes />
+        </Router>
+      </CurrentUserChecker>
     </CurrentUserProvider>
   )
 }
