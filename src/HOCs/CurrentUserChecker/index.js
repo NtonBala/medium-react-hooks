@@ -1,7 +1,7 @@
 import {useEffect, useContext} from 'react'
 
 import {useFetch, useLocalStorage} from 'Hooks'
-import {PATHS} from 'API/paths'
+import {PATHS} from 'API'
 import {CurrentUserContext} from 'Contexts'
 
 export const CurrentUserChecker = ({children}) => {

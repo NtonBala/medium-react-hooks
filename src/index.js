@@ -2,12 +2,11 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import {BrowserRouter, HashRouter} from 'react-router-dom'
 
+import './i18n'
 import {TopBar} from 'Components'
 import {Routes} from 'Routes'
 import {CurrentUserProvider} from 'Contexts'
-
-import './i18n'
-import {CurrentUserChecker} from 'Components'
+import {CurrentUserChecker} from 'HOCs'
 
 const Router =
   process.env.NODE_ENV === 'development' ? BrowserRouter : HashRouter

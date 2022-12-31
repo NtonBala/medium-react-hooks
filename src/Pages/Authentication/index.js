@@ -2,17 +2,17 @@ import React, {useState, useEffect, useContext} from 'react'
 import {Link, Redirect} from 'react-router-dom'
 import {useTranslation} from 'react-i18next'
 
-import {routes} from 'Routes/constants'
+import {ROUTES} from 'Routes'
 import {useFetch, useLocalStorage} from 'Hooks'
-import {PATHS} from 'API/paths'
+import {PATHS} from 'API'
 import {CurrentUserContext} from 'Contexts'
 import {BackendErrorMessages} from 'Components'
 
 export const Authentication = props => {
   const {t} = useTranslation()
-  const isLogin = props.match.path === routes.login
+  const isLogin = props.match.path === ROUTES.login
   const pageTitle = isLogin ? t('common.signIn') : t('common.signUp')
-  const descriptionLink = isLogin ? routes.register : routes.login
+  const descriptionLink = isLogin ? ROUTES.register : ROUTES.login
   const descriptionText = isLogin
     ? t('auth.needAccount')
     : t('auth.haveAccount')
@@ -52,7 +52,7 @@ export const Authentication = props => {
     }))
   }, [response, setCurrentUser, setToken])
 
-  if (isSuccessfulSubmit) return <Redirect to={routes.main} />
+  if (isSuccessfulSubmit) return <Redirect to={ROUTES.main} />
 
   return (
     <div className="auth-page">
