@@ -23,13 +23,13 @@ export const Authentication = props => {
   const [username, setUsername] = useState('')
   const [isSuccessfulSubmit, setIsSuccessfulSubmit] = useState(false)
   const [, setToken] = useLocalStorage('token')
-  const [, setCurrentUser] = useContext(CurrentUserContext)
+  const [, setCurrentUserState] = useContext(CurrentUserContext)
 
   const handleSubmit = e => {
     const user = isLogin ? {email, password} : {username, email, password}
 
     e.preventDefault()
-    setCurrentUser(state => ({
+    setCurrentUserState(state => ({
       ...state,
       isLoading: true,
     }))
@@ -44,13 +44,13 @@ export const Authentication = props => {
 
     setToken(response.user.token)
     setIsSuccessfulSubmit(true)
-    setCurrentUser(state => ({
+    setCurrentUserState(state => ({
       ...state,
       isLoggedIn: true,
       isLoading: false,
       currentUser: response.user,
     }))
-  }, [response, setCurrentUser, setToken])
+  }, [response, setCurrentUserState, setToken])
 
   if (isSuccessfulSubmit) return <Redirect to={ROUTES.main} />
 

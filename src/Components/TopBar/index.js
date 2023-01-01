@@ -1,12 +1,14 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import {Link, NavLink} from 'react-router-dom'
 import {useTranslation} from 'react-i18next'
 
 import {ROUTES} from 'Routes'
 import {APP_NAME} from 'Constants'
+import {CurrentUserContext} from 'Contexts'
 
 export const TopBar = () => {
   const {t} = useTranslation()
+  const [{isLoggedIn, currentUser}] = useContext(CurrentUserContext)
 
   return (
     <nav className="navbar navbar-light">
@@ -24,17 +26,40 @@ export const TopBar = () => {
             </NavLink>
           </li>
 
-          <li className="nav-item">
-            <NavLink to={ROUTES.login} className="nav-link">
-              {t('common.signIn')}
-            </NavLink>
-          </li>
+          {isLoggedIn === false && (
+            <>
+              <li className="nav-item">
+                <NavLink to={ROUTES.login} className="nav-link">
+                  {t('common.signIn')}
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink to={ROUTES.register} className="nav-link">
+                  {t('common.signUp')}
+                </NavLink>
+              </li>
+            </>
+          )}
 
-          <li className="nav-item">
-            <NavLink to={ROUTES.register} className="nav-link">
-              {t('common.signUp')}
-            </NavLink>
-          </li>
+          {isLoggedIn && (
+            <>
+              <li className="nav-item">
+                <NavLink to={ROUTES.newArticle} className="nav-link">
+                  <i className="ion-compose"></i>
+                  &nbsp; {t('common.newPost')}
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  to={`${ROUTES.profiles}/${currentUser.username}`}
+                  className="nav-link"
+                >
+                  <img className="user-pic" src={currentUser.image} alt="" />
+                  &nbsp; {currentUser.username}
+                </NavLink>
+              </li>
+            </>
+          )}
         </ul>
       </div>
     </nav>

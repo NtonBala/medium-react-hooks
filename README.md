@@ -12,13 +12,7 @@ It's a SPA that uses browser router in development mode and hash router in produ
 
 Project is deployed on [GitHub Pages](https://pages.github.com/). Project URL is https://ntonbala.github.io/medium-react-hooks. To deploy the project run `yarn run deploy`.
 
-Project is styled via [Bootstrap 4](https://getbootstrap.com/). Styles, fonts and icons are downloaded and supplied through `link` tag in `index.html`:
-
-```
-  <link rel="stylesheet" href="%PUBLIC_URL%/css/main.css" />
-  <link href="%PUBLIC_URL%/css/fonts.css" rel="stylesheet" type="text/css" />
-  <link href="%PUBLIC_URL%/css/ionicons.min.css" rel="stylesheet" type="text/css" />
-```
+Project is styled via [demo.productionready.io](https://demo.productionready.io/) styles.
 
 Project is localized with [react-i18next](https://locize.com/blog/react-i18next/). Default language is English.
 

@@ -6,12 +6,12 @@ import {CurrentUserContext} from 'Contexts'
 
 export const CurrentUserChecker = ({children}) => {
   const [{response}, doFetch] = useFetch(PATHS.currentUser)
-  const [, setCurrentUser] = useContext(CurrentUserContext)
+  const [, setCurrentUserState] = useContext(CurrentUserContext)
   const [token] = useLocalStorage('token')
 
   useEffect(() => {
     if (!token) {
-      setCurrentUser(state => ({
+      setCurrentUserState(state => ({
         ...state,
         isLoggedIn: false,
       }))
@@ -19,23 +19,23 @@ export const CurrentUserChecker = ({children}) => {
       return
     }
 
-    setCurrentUser(state => ({
+    setCurrentUserState(state => ({
       ...state,
       isLoading: true,
     }))
     doFetch()
-  }, [setCurrentUser, doFetch, token])
+  }, [setCurrentUserState, doFetch, token])
 
   useEffect(() => {
     if (!response) return
 
-    setCurrentUser(state => ({
+    setCurrentUserState(state => ({
       ...state,
       currentUser: response.user,
       isLoading: false,
       isLoggedIn: true,
     }))
-  }, [response, setCurrentUser])
+  }, [response, setCurrentUserState])
 
   return children
 }

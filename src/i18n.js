@@ -27,6 +27,7 @@ i18n
             home: 'Home',
             password: 'Password',
             username: 'Username',
+            newPost: 'New Post',
           },
           auth: {
             needAccount: 'Need an account?',

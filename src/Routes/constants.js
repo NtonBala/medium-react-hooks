@@ -3,4 +3,6 @@ export const ROUTES = Object.freeze({
   articles: '/articles',
   login: '/login',
   register: '/register',
+  newArticle: '/articles/new',
+  profiles: '/profiles',
 })
