@@ -28,6 +28,7 @@ i18n
             password: 'Password',
             username: 'Username',
             newPost: 'New Post',
+            loading: 'Loading...',
           },
           auth: {
             needAccount: 'Need an account?',
@@ -35,9 +36,15 @@ i18n
           },
           globalFeed: {
             title: 'Global Feed',
+            bannerTitle: 'Medium clone',
+            bannerDescription: 'A place to share knowledge.',
           },
           article: {
             title: 'Article',
+            readMore: 'Read more...',
+          },
+          errors: {
+            common: 'Some error happened',
           },
         },
       },
