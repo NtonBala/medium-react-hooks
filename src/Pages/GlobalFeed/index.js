@@ -1,13 +1,14 @@
 import React, {useEffect} from 'react'
 import {useTranslation} from 'react-i18next'
 
+import {ARTICLES_LIMIT} from 'Constants'
 import {useFetch} from 'Hooks'
 import {PATHS} from 'API'
-import {Feed} from 'Components'
+import {Feed, Pagination} from 'Components'
 
 export const GlobalFeed = () => {
   const {t} = useTranslation()
-  const apiUrl = `${PATHS.articles}?limit=10&offset=0`
+  const apiUrl = `${PATHS.articles}?limit=${ARTICLES_LIMIT}&offset=0`
   const [{response, isLoading, error}, doFetch] = useFetch(apiUrl)
 
   useEffect(() => {
@@ -28,7 +29,12 @@ export const GlobalFeed = () => {
           <div className="col-md-9">
             {isLoading && <div>{t('common.loading')}</div>}
             {error && <div>{t('errors.common')}</div>}
-            {!isLoading && response && <Feed articles={response.articles} />}
+            {!isLoading && response && (
+              <>
+                <Feed articles={response.articles} />
+                <Pagination total={500} currentPage={2} />
+              </>
+            )}
           </div>
           <div className="col-md-3">Popular tags</div>
         </div>
