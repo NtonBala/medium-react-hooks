@@ -2,7 +2,7 @@ import React from 'react'
 
 import * as SvgComponents from './svgComponents'
 
-export const Icon = ({width, height, size, component}) => {
+export const Icon = ({width, height, size, component, ...props}) => {
   // * Underlying SVG should prefer viewBox to width/height in order to resize and be compatible with component API.
 
   // * If size prop is provided - than SVG is expected to be of square shape: width === size & height === size.
@@ -14,5 +14,7 @@ export const Icon = ({width, height, size, component}) => {
   // * And the drawing will be inscribed into that rectangle.
   const SvgComponent = SvgComponents[component]
 
-  return <SvgComponent width={size || width} height={size || height} />
+  return (
+    <SvgComponent width={size || width} height={size || height} {...props} />
+  )
 }

@@ -65,7 +65,11 @@ export const TopBar = () => {
 
           <li className="nav-item">
             <NavLink to="language-switch" className="nav-link">
-              <Icon component="Language" width={25} />
+              <Icon
+                component="Language"
+                width={22}
+                style={{verticalAlign: 'middle'}}
+              />
             </NavLink>
           </li>
         </ul>
