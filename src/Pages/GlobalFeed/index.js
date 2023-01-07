@@ -1,19 +1,23 @@
 import React, {useEffect} from 'react'
 import {useTranslation} from 'react-i18next'
+import {stringify} from 'query-string'
 
 import {ARTICLES_LIMIT} from 'Constants'
 import {useFetch} from 'Hooks'
 import {PATHS} from 'API'
 import {Feed, Pagination} from 'Components'
+import {getPaginator} from 'Utils'
 
-export const GlobalFeed = () => {
+export const GlobalFeed = ({location}) => {
   const {t} = useTranslation()
-  const apiUrl = `${PATHS.articles}?limit=${ARTICLES_LIMIT}&offset=0`
+  const {currentPage, offset} = getPaginator(location.search, ARTICLES_LIMIT)
+  const stringifiedParams = stringify({limit: ARTICLES_LIMIT, offset})
+  const apiUrl = `${PATHS.articles}?${stringifiedParams}`
   const [{response, isLoading, error}, doFetch] = useFetch(apiUrl)
 
   useEffect(() => {
     doFetch()
-  }, [doFetch])
+  }, [doFetch, currentPage])
 
   return (
     <div className="home-page">
@@ -32,7 +36,11 @@ export const GlobalFeed = () => {
             {!isLoading && response && (
               <>
                 <Feed articles={response.articles} />
-                <Pagination total={500} currentPage={2} />
+                <Pagination
+                  total={response.articlesCount}
+                  limit={ARTICLES_LIMIT}
+                  currentPage={currentPage}
+                />
               </>
             )}
           </div>
