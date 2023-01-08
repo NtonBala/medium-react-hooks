@@ -29,6 +29,7 @@ i18n
             username: 'Username',
             newPost: 'New Post',
             loading: 'Loading...',
+            pageNotFound: 'Page Not Found',
           },
           auth: {
             needAccount: 'Need an account?',
