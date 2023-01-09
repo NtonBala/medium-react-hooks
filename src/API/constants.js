@@ -3,4 +3,5 @@ export const PATHS = Object.freeze({
   register: '/users',
   currentUser: '/user',
   articles: '/articles',
+  tags: '/tags',
 })

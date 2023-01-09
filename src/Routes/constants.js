@@ -6,4 +6,5 @@ export const ROUTES = Object.freeze({
   register: '/register',
   newArticle: '/articles/new',
   profiles: '/profiles',
+  tags: '/tags',
 })

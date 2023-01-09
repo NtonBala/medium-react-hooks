@@ -30,6 +30,7 @@ i18n
             newPost: 'New Post',
             loading: 'Loading...',
             pageNotFound: 'Page Not Found',
+            popularTags: 'Popular tags',
           },
           auth: {
             needAccount: 'Need an account?',
@@ -45,7 +46,7 @@ i18n
             readMore: 'Read more...',
           },
           errors: {
-            common: 'Some error happened',
+            general: 'Something went wrong',
           },
         },
       },
