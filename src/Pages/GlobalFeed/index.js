@@ -5,7 +5,14 @@ import {stringify} from 'query-string'
 import {ARTICLES_LIMIT} from 'Constants'
 import {useFetch} from 'Hooks'
 import {PATHS} from 'API'
-import {Feed, Pagination, PopularTags, Loading, ErrorMessage} from 'Components'
+import {
+  Feed,
+  Pagination,
+  PopularTags,
+  Loading,
+  ErrorMessage,
+  FeedToggler,
+} from 'Components'
 import {getPaginator} from 'Utils'
 
 export const GlobalFeed = ({location}) => {
@@ -31,6 +38,8 @@ export const GlobalFeed = ({location}) => {
       <div className="container page">
         <div className="row">
           <div className="col-md-9">
+            <FeedToggler />
+
             {isLoading && <Loading />}
             {error && <ErrorMessage />}
             {!isLoading && response && (

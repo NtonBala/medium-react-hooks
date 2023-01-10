@@ -7,4 +7,5 @@ export const ROUTES = Object.freeze({
   newArticle: '/articles/new',
   profiles: '/profiles',
   tags: '/tags',
+  feed: '/feed',
 })

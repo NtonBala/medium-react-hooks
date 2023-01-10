@@ -31,6 +31,8 @@ i18n
             loading: 'Loading...',
             pageNotFound: 'Page Not Found',
             popularTags: 'Popular tags',
+            yourFeed: 'Your feed',
+            globalFeed: 'Global feed',
           },
           auth: {
             needAccount: 'Need an account?',
