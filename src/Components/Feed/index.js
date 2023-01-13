@@ -9,6 +9,10 @@ export const Feed = ({articles}) => {
 
   return (
     <div>
+      {articles.length === 0 && (
+        <div className="article-preview">{t('common.noArticlesYet')}</div>
+      )}
+
       {articles.map(
         ({author, createdAt, slug, title, description, tagList}, index) => (
           <div key={index} className="article-preview">

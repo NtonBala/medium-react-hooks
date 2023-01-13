@@ -33,6 +33,7 @@ i18n
             popularTags: 'Popular tags',
             yourFeed: 'Your feed',
             globalFeed: 'Global feed',
+            noArticlesYet: 'No articles are here... yet.',
           },
           auth: {
             needAccount: 'Need an account?',
