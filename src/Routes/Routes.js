@@ -16,10 +16,10 @@ export const Routes = () => {
     <Switch>
       <Route path={ROUTES.main} component={GlobalFeed} exact />
       <Route path={ROUTES.feed} component={YourFeed} />
-      <Route path={`${ROUTES.tags}/:slug`} component={TagFeed} exact />
-      <Route path={ROUTES.login} component={Authentication} exact />
-      <Route path={ROUTES.register} component={Authentication} exact />
-      <Route path={`${ROUTES.articles}/:slug`} component={Article} exact />
+      <Route path={`${ROUTES.tags}/:slug`} component={TagFeed} />
+      <Route path={ROUTES.login} component={Authentication} />
+      <Route path={ROUTES.register} component={Authentication} />
+      <Route path={`${ROUTES.articles}/:slug`} component={Article} />
 
       {/* TODO: Remove when another decision for package['homepage'] is found */}
       {process.env.NODE_ENV === 'development' && (
