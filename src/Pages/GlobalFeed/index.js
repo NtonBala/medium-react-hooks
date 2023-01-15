@@ -1,5 +1,4 @@
-import React, {useEffect} from 'react'
-import {useTranslation} from 'react-i18next'
+import React, {useEffect, useContext} from 'react'
 import {stringify} from 'query-string'
 
 import {ARTICLES_LIMIT} from 'Constants'
@@ -13,14 +12,16 @@ import {
   ErrorMessage,
   FeedToggler,
 } from 'Components'
+import {Banner} from './Banner'
 import {getPaginator} from 'Utils'
+import {CurrentUserContext} from 'Contexts'
 
 export const GlobalFeed = ({location}) => {
-  const {t} = useTranslation()
   const {currentPage, offset} = getPaginator(location.search, ARTICLES_LIMIT)
   const stringifiedParams = stringify({limit: ARTICLES_LIMIT, offset})
   const apiUrl = `${PATHS.articles}?${stringifiedParams}`
   const [{response, isLoading, error}, doFetch] = useFetch(apiUrl)
+  const [currentUserState] = useContext(CurrentUserContext)
 
   useEffect(() => {
     doFetch()
@@ -28,12 +29,7 @@ export const GlobalFeed = ({location}) => {
 
   return (
     <div className="home-page">
-      <div className="banner">
-        <div className="container">
-          <h1>{t('globalFeed.bannerTitle')}</h1>
-          <p>{t('globalFeed.bannerDescription')}</p>
-        </div>
-      </div>
+      {currentUserState.isLoggedIn === false && <Banner />}
 
       <div className="container page">
         <div className="row">
