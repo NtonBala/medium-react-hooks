@@ -21,9 +21,8 @@ export const Authentication = props => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [username, setUsername] = useState('')
-  const [isSuccessfulSubmit, setIsSuccessfulSubmit] = useState(false)
   const [, setToken] = useLocalStorage('token')
-  const [, setCurrentUserState] = useContext(CurrentUserContext)
+  const [currentUserState, setCurrentUserState] = useContext(CurrentUserContext)
 
   const handleSubmit = e => {
     const user = isLogin ? {email, password} : {username, email, password}
@@ -43,7 +42,6 @@ export const Authentication = props => {
     if (!response) return
 
     setToken(response.user.token)
-    setIsSuccessfulSubmit(true)
     setCurrentUserState(state => ({
       ...state,
       isLoggedIn: true,
@@ -52,7 +50,7 @@ export const Authentication = props => {
     }))
   }, [response, setCurrentUserState, setToken])
 
-  if (isSuccessfulSubmit) return <Redirect to={ROUTES.main} />
+  if (currentUserState.isLoggedIn) return <Redirect to={ROUTES.feed} />
 
   return (
     <div className="auth-page">
@@ -115,3 +113,4 @@ export const Authentication = props => {
     </div>
   )
 }
+ 
