@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useContext} from 'react'
-import {Link, Redirect} from 'react-router-dom'
+import {Redirect} from 'react-router-dom'
 import {useTranslation} from 'react-i18next'
 
 import {ROUTES} from 'Routes'
@@ -7,16 +7,13 @@ import {useFetch, useLocalStorage} from 'Hooks'
 import {PATHS} from 'API'
 import {CurrentUserContext} from 'Contexts'
 import {BackendErrorMessages} from 'Components'
+import {Heading} from './Heading'
 
 export const Authentication = props => {
   const {t} = useTranslation()
-  const isLogin = props.match.path === ROUTES.login
-  const pageTitle = isLogin ? t('common.signIn') : t('common.signUp')
-  const descriptionLink = isLogin ? ROUTES.register : ROUTES.login
-  const descriptionText = isLogin
-    ? t('auth.needAccount')
-    : t('auth.haveAccount')
-  const apiUrl = isLogin ? PATHS.login : PATHS.register
+  const isLoginView = props.match.path === ROUTES.login
+  const btnText = isLoginView ? t('common.signIn') : t('common.signUp')
+  const apiUrl = isLoginView ? PATHS.login : PATHS.register
   const [{isLoading, response, error}, doFetch] = useFetch(apiUrl)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -25,7 +22,7 @@ export const Authentication = props => {
   const [currentUserState, setCurrentUserState] = useContext(CurrentUserContext)
 
   const handleSubmit = e => {
-    const user = isLogin ? {email, password} : {username, email, password}
+    const user = isLoginView ? {email, password} : {username, email, password}
 
     e.preventDefault()
     setCurrentUserState(state => ({
@@ -57,16 +54,12 @@ export const Authentication = props => {
       <div className="container page">
         <div className="row">
           <div className="col-md-6 offset-md-3 col-xs-12">
-            <h2 className="text-xs-center">{pageTitle}</h2>
-
-            <p className="text-xs-center">
-              <Link to={descriptionLink}>{descriptionText}</Link>
-            </p>
+            <Heading isLoginView={isLoginView} />
 
             <form onSubmit={handleSubmit}>
               {error && <BackendErrorMessages backendErrors={error.errors} />}
               <fieldset>
-                {!isLogin && (
+                {!isLoginView && (
                   <fieldset className="form-group">
                     <input
                       className="form-control form-control-lg"
@@ -103,7 +96,7 @@ export const Authentication = props => {
                   type="submit"
                   disabled={isLoading}
                 >
-                  {pageTitle}
+                  {btnText}
                 </button>
               </fieldset>
             </form>
@@ -113,4 +106,3 @@ export const Authentication = props => {
     </div>
   )
 }
- 
