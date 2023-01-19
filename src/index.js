@@ -2,7 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import {BrowserRouter, HashRouter} from 'react-router-dom'
 
-import './i18n'
+import './Localizations'
+
 import {TopBar} from 'Components'
 import {Routes} from 'Routes'
 import {CurrentUserProvider} from 'Contexts'
