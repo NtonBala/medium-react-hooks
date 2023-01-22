@@ -32,7 +32,7 @@ export const Feed = ({articles}) => {
               </div>
             </div>
 
-            <Link to={`${ROUTES.article}/${slug}`} className="preview-link">
+            <Link to={`${ROUTES.articles}/${slug}`} className="preview-link">
               <h1>{title}</h1>
               <p>{description}</p>
               <span>{t('article.readMore')}</span>
