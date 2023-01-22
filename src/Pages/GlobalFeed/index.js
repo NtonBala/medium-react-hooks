@@ -12,9 +12,10 @@ import {
   ErrorMessage,
   FeedToggler,
 } from 'Components'
-import {Banner} from './Banner'
 import {getPaginator} from 'Utils'
 import {CurrentUserContext} from 'Contexts'
+
+import {Banner} from './Banner'
 
 export const GlobalFeed = ({location}) => {
   const {currentPage, offset} = getPaginator(location.search, ARTICLES_LIMIT)

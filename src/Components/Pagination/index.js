@@ -1,6 +1,7 @@
 import React from 'react'
 
 import {range} from 'Utils'
+
 import {PaginationItem} from './PaginationItem'
 
 export const Pagination = ({total, limit, url, currentPage}) => {
