@@ -1,51 +1,31 @@
-import React, {useState, useEffect, useContext} from 'react'
+import React, {useState} from 'react'
 import {Redirect} from 'react-router-dom'
 import {useTranslation} from 'react-i18next'
 
 import {ROUTES} from 'Routes'
-import {useFetch, useLocalStorage} from 'Hooks'
 import {PATHS} from 'API'
-import {CurrentUserContext} from 'Contexts'
 import {BackendErrorMessages} from 'Components'
+
 import {Heading} from './Heading'
+import {useAuthentication} from './hooks'
 
 export const Authentication = props => {
   const {t} = useTranslation()
   const isLoginView = props.match.path === ROUTES.login
   const btnText = isLoginView ? t('common.signIn') : t('common.signUp')
   const apiUrl = isLoginView ? PATHS.login : PATHS.register
-  const [{isLoading, response, error}, doFetch] = useFetch(apiUrl)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [username, setUsername] = useState('')
-  const [, setToken] = useLocalStorage('token')
-  const [currentUserState, setCurrentUserState] = useContext(CurrentUserContext)
+  const [{isLoading, error, currentUserState}, doFetch] =
+    useAuthentication(apiUrl)
 
   const handleSubmit = e => {
     const user = isLoginView ? {email, password} : {username, email, password}
 
     e.preventDefault()
-    setCurrentUserState(state => ({
-      ...state,
-      isLoading: true,
-    }))
-    doFetch({
-      method: 'post',
-      data: {user},
-    })
+    doFetch(user)
   }
-
-  useEffect(() => {
-    if (!response) return
-
-    setToken(response.user.token)
-    setCurrentUserState(state => ({
-      ...state,
-      isLoggedIn: true,
-      isLoading: false,
-      currentUser: response.user,
-    }))
-  }, [response, setCurrentUserState, setToken])
 
   if (currentUserState.isLoggedIn) return <Redirect to={ROUTES.feed} />
 
