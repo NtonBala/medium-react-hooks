@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import {useTranslation} from 'react-i18next'
 
 import {ROUTES} from 'Routes'
+import {TagList} from 'Components/TagList'
 
 export const ArticlePreview = ({
   article: {author, createdAt, slug, title, description, tagList},
@@ -31,13 +32,7 @@ export const ArticlePreview = ({
 
         <span>{t('article.readMore')}</span>
 
-        <ul className="tag-list">
-          {tagList.map(tag => (
-            <li key={tag} className="tag-default tag-pill tag-outline">
-              {tag}
-            </li>
-          ))}
-        </ul>
+        <TagList tags={tagList} />
       </Link>
     </div>
   )
