@@ -13,6 +13,7 @@ export const en = {
     yourFeed: 'Your feed',
     globalFeed: 'Global feed',
     noArticlesYet: 'No articles are here... yet.',
+    readMore: 'Read more...',
   },
   auth: {
     needAccount: 'Need an account?',
@@ -22,10 +23,6 @@ export const en = {
     title: 'Global Feed',
     bannerTitle: 'Medium clone',
     bannerDescription: 'A place to share knowledge.',
-  },
-  article: {
-    title: 'Article',
-    readMore: 'Read more...',
   },
   errors: {
     general: 'Something went wrong',

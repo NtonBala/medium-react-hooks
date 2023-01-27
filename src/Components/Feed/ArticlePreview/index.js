@@ -30,7 +30,7 @@ export const ArticlePreview = ({
         <h1>{title}</h1>
         <p>{description}</p>
 
-        <span>{t('article.readMore')}</span>
+        <span>{t('common.readMore')}</span>
 
         <TagList tags={tagList} />
       </Link>
