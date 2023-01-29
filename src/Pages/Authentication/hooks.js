@@ -6,13 +6,10 @@ import {CurrentUserContext} from 'Contexts'
 export const useAuthentication = apiUrl => {
   const [{isLoading, response, error}, doFetch] = useFetch(apiUrl)
   const [token, setToken] = useLocalStorage('token')
-  const [currentUserState, setCurrentUserState] = useContext(CurrentUserContext)
+  const [currentUserState, dispatch] = useContext(CurrentUserContext)
 
   const doFetchReturnFunc = user => {
-    setCurrentUserState(state => ({
-      ...state,
-      isLoading: true,
-    }))
+    dispatch({type: 'LOADING'})
     doFetch({
       method: 'post',
       data: {user},
@@ -23,13 +20,8 @@ export const useAuthentication = apiUrl => {
     if (!response) return
 
     setToken(response.user.token)
-    setCurrentUserState(state => ({
-      ...state,
-      isLoggedIn: true,
-      isLoading: false,
-      currentUser: response.user,
-    }))
-  }, [response, setCurrentUserState, setToken])
+    dispatch({type: 'SET_AUTHORIZED', payload: response.user})
+  }, [dispatch, response, setToken])
 
   return [{isLoading, error, token, currentUserState}, doFetchReturnFunc]
 }
