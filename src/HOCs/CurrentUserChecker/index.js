@@ -2,7 +2,12 @@ import {useEffect, useContext} from 'react'
 
 import {useFetch, useLocalStorage} from 'Hooks'
 import {PATHS} from 'API'
-import {CurrentUserContext} from 'Contexts'
+import {
+  CurrentUserContext,
+  LOADING,
+  SET_AUTHORIZED,
+  SET_UNAUTHORIZED,
+} from 'Contexts'
 
 export const CurrentUserChecker = ({children}) => {
   const [{response}, doFetch] = useFetch(PATHS.currentUser)
@@ -11,19 +16,19 @@ export const CurrentUserChecker = ({children}) => {
 
   useEffect(() => {
     if (!token) {
-      dispatch({type: 'SET_UNAUTHORIZED'})
+      dispatch({type: SET_UNAUTHORIZED})
 
       return
     }
 
-    dispatch({type: 'LOADING'})
+    dispatch({type: LOADING})
     doFetch()
   }, [dispatch, doFetch, token])
 
   useEffect(() => {
     if (!response) return
 
-    dispatch({type: 'SET_AUTHORIZED', payload: response.user})
+    dispatch({type: SET_AUTHORIZED, payload: response.user})
   }, [dispatch, response])
 
   return children

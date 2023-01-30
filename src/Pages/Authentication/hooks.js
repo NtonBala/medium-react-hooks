@@ -1,7 +1,7 @@
 import {useEffect, useContext} from 'react'
 
 import {useFetch, useLocalStorage} from 'Hooks'
-import {CurrentUserContext} from 'Contexts'
+import {CurrentUserContext, LOADING, SET_AUTHORIZED} from 'Contexts'
 
 export const useAuthentication = apiUrl => {
   const [{isLoading, response, error}, doFetch] = useFetch(apiUrl)
@@ -9,7 +9,7 @@ export const useAuthentication = apiUrl => {
   const [currentUserState, dispatch] = useContext(CurrentUserContext)
 
   const doFetchReturnFunc = user => {
-    dispatch({type: 'LOADING'})
+    dispatch({type: LOADING})
     doFetch({
       method: 'post',
       data: {user},
@@ -20,7 +20,7 @@ export const useAuthentication = apiUrl => {
     if (!response) return
 
     setToken(response.user.token)
-    dispatch({type: 'SET_AUTHORIZED', payload: response.user})
+    dispatch({type: SET_AUTHORIZED, payload: response.user})
   }, [dispatch, response, setToken])
 
   return [{isLoading, error, token, currentUserState}, doFetchReturnFunc]

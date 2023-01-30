@@ -6,18 +6,22 @@ const initialState = {
   currentUser: null,
 }
 
+export const LOADING = 'LOADING'
+export const SET_AUTHORIZED = 'SET_AUTHORIZED'
+export const SET_UNAUTHORIZED = 'SET_UNAUTHORIZED'
+
 const reducer = (state, action) => {
   switch (action.type) {
-    case 'LOADING':
+    case LOADING:
       return {...state, isLoading: true}
-    case 'SET_AUTHORIZED':
+    case SET_AUTHORIZED:
       return {
         ...state,
         isLoggedIn: true,
         isLoading: false,
         currentUser: action.payload,
       }
-    case 'SET_UNAUTHORIZED':
+    case SET_UNAUTHORIZED:
       return {...state, isLoggedIn: false}
     default:
       return state
