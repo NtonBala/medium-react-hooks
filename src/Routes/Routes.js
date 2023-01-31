@@ -8,6 +8,7 @@ import {
   TagFeed,
   NoMatch,
   YourFeed,
+  CreateArticle,
 } from 'Pages'
 import {ROUTES} from './constants'
 
@@ -15,6 +16,7 @@ export const Routes = () => {
   return (
     <Switch>
       <Route path={ROUTES.main} component={GlobalFeed} exact />
+      <Route path={ROUTES.newArticle} component={CreateArticle} />
       <Route path={ROUTES.feed} component={YourFeed} />
       <Route path={`${ROUTES.tags}/:slug`} component={TagFeed} />
       <Route path={ROUTES.login} component={Authentication} />
