@@ -27,4 +27,11 @@ export const en = {
   errors: {
     general: 'Something went wrong',
   },
+  articleForm: {
+    titlePlaceholder: 'Article title',
+    descriptionPlaceholder: 'What is this article about?',
+    bodyPlaceholder: 'Write your article (in markdown)',
+    tagListPlaceholder: 'Enter tags',
+    submitButton: 'Publish Article',
+  },
 }

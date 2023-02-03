@@ -1,8 +1,10 @@
 import React, {useState} from 'react'
+import {useTranslation} from 'react-i18next'
 
 import {BackendErrorMessages} from 'Components'
 
 export const ArticleForm = ({onSubmit, errors, initialValues}) => {
+  const {t} = useTranslation()
   const [title, setTitle] = useState(initialValues.title || '')
   const [body, setBody] = useState(initialValues.body || '')
   const [description, setDescription] = useState(
@@ -30,7 +32,7 @@ export const ArticleForm = ({onSubmit, errors, initialValues}) => {
                   <input
                     type="text"
                     className="form-control form-control-lg"
-                    placeholder="Article title"
+                    placeholder={t('articleForm.titlePlaceholder')}
                     value={title}
                     onChange={e => setTitle(e.target.value)}
                   />
@@ -40,7 +42,7 @@ export const ArticleForm = ({onSubmit, errors, initialValues}) => {
                   <input
                     type="text"
                     className="form-control form-control-lg"
-                    placeholder="What's this article about?"
+                    placeholder={t('articleForm.descriptionPlaceholder')}
                     value={description}
                     onChange={e => setDescription(e.target.value)}
                   />
@@ -50,7 +52,7 @@ export const ArticleForm = ({onSubmit, errors, initialValues}) => {
                   <textarea
                     className="form-control"
                     rows="8"
-                    placeholder="Write your article (in markdown)"
+                    placeholder={t('articleForm.bodyPlaceholder')}
                     value={body}
                     onChange={e => setBody(e.target.value)}
                   ></textarea>
@@ -60,7 +62,7 @@ export const ArticleForm = ({onSubmit, errors, initialValues}) => {
                   <input
                     type="text"
                     className="form-control form-control-lg"
-                    placeholder="Enter tags"
+                    placeholder={t('articleForm.tagListPlaceholder')}
                     value={tagList}
                     onChange={e => setTagList(e.target.value)}
                   />
@@ -71,7 +73,7 @@ export const ArticleForm = ({onSubmit, errors, initialValues}) => {
                     type="submit"
                     className="btn btn-lg pull-xs-right btn-primary"
                   >
-                    Publish Article
+                    {t('articleForm.submitButton')}
                   </button>
                 </fieldset>
               </fieldset>
