@@ -1,5 +1,5 @@
 export {TopBar} from './TopBar'
-export {BackendErrorMessages} from './BackendErrors'
+export {BackendErrorMessages} from './BackendErrorMessages'
 export {Feed} from './Feed'
 export {Pagination} from './Pagination'
 export {PopularTags} from './PopularTags'
