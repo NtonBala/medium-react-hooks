@@ -4,6 +4,7 @@ import {Redirect} from 'react-router-dom'
 import {ArticleForm} from 'Components'
 import {PATHS} from 'API'
 import {useFetch} from 'Hooks'
+import {ROUTES} from 'Routes'
 
 const INITIAL_VALUES = {
   title: '',
@@ -35,7 +36,7 @@ export const CreateArticle = () => {
   }, [response])
 
   if (isSuccessfullSubmit) {
-    return <Redirect to={`${PATHS.articles}/${response.article.slug}`} />
+    return <Redirect to={`${ROUTES.articles}/${response.article.slug}`} />
   }
 
   return (

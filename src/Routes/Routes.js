@@ -11,13 +11,14 @@ import {
   CreateArticle,
 } from 'Pages'
 import {ROUTES} from './constants'
+import {PrivateRoute} from 'HOCs'
 
 export const Routes = () => {
   return (
     <Switch>
       <Route path={ROUTES.main} component={GlobalFeed} exact />
-      <Route path={ROUTES.newArticle} component={CreateArticle} />
-      <Route path={ROUTES.feed} component={YourFeed} />
+      <PrivateRoute path={ROUTES.newArticle} component={CreateArticle} />
+      <PrivateRoute path={ROUTES.feed} component={YourFeed} />
       <Route path={`${ROUTES.tags}/:slug`} component={TagFeed} />
       <Route path={ROUTES.login} component={Authentication} />
       <Route path={ROUTES.register} component={Authentication} />
