@@ -19,7 +19,10 @@ export const Routes = () => {
     <Switch>
       <Route path={ROUTES.main} component={GlobalFeed} exact />
       <PrivateRoute path={ROUTES.newArticle} component={CreateArticle} />
-      <Route path={`${ROUTES.articles}/:slug/edit`} component={EditArticle} />
+      <PrivateRoute
+        path={`${ROUTES.articles}/:slug/edit`}
+        component={EditArticle}
+      />
       <PrivateRoute path={ROUTES.feed} component={YourFeed} />
       <Route path={`${ROUTES.tags}/:slug`} component={TagFeed} />
       <Route path={ROUTES.login} component={Authentication} />

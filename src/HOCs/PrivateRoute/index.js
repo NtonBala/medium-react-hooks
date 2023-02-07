@@ -6,18 +6,17 @@ import {ROUTES} from 'Routes'
 
 export const PrivateRoute = ({component: Component, ...rest}) => {
   const [currentUserState] = useContext(CurrentUserContext)
-  console.log('currentUserState', currentUserState)
 
   return (
     <Route
       {...rest}
-      render={props => {
-        return currentUserState.isLoggedIn ? (
-          <Component {...props} />
-        ) : (
+      render={props =>
+        currentUserState.isLoggedIn === false ? (
           <Redirect to={ROUTES.main} />
+        ) : (
+          <Component {...props} />
         )
-      }}
+      }
     />
   )
 }

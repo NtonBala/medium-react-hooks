@@ -1,11 +1,10 @@
-import React, {useEffect, useState, useContext} from 'react'
+import React, {useEffect, useState} from 'react'
 import {Redirect} from 'react-router-dom'
 
 import {ArticleForm} from 'Components'
 import {PATHS} from 'API'
 import {useFetch} from 'Hooks'
 import {ROUTES} from 'Routes'
-import {CurrentUserContext} from 'Contexts'
 
 export const EditArticle = ({match}) => {
   const slug = match.params.slug
@@ -17,7 +16,6 @@ export const EditArticle = ({match}) => {
   ] = useFetch(apiUrl)
   const [initialValues, setInitialValues] = useState(null)
   const [isSuccessfullSubmit, setIsSuccessfullSubmit] = useState(false)
-  const [currentUserState] = useContext(CurrentUserContext)
 
   const handleSubmit = article => {
     doUpdateArticle({
@@ -52,10 +50,6 @@ export const EditArticle = ({match}) => {
 
     setIsSuccessfullSubmit(true)
   }, [updateArticleResponse])
-
-  if (currentUserState.isLoggedIn === false) {
-    return <Redirect to={PATHS.main} />
-  }
 
   if (isSuccessfullSubmit) {
     return <Redirect to={`${PATHS.articles}/${slug}`} />
