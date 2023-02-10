@@ -10,7 +10,7 @@ It's a SPA that uses browser router in development mode and hash router in produ
   const Router = process.env.NODE_ENV === 'development' ? BrowserRouter : HashRouter
 ```
 
-Project is deployed on [GitHub Pages](https://pages.github.com/). Project URL is https://ntonbala.github.io/medium-react-hooks. To deploy the project run `yarn run deploy`.
+Project is deployed on [GitHub Pages](https://ntonbala.github.io/medium-react-hooks). To deploy the project run `yarn run deploy`.
 
 Project is styled via [demo.productionready.io](https://demo.productionready.io/) styles and [Ionic-Icons](https://www.tutorialspoint.com/ionic/ionic_icons.htm).
 
