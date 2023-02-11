@@ -1,36 +1,70 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
+import {Redirect} from 'react-router-dom'
 
 import {useFetch} from 'Hooks'
 import {PATHS} from 'API'
 import {Loading, ErrorMessage} from 'Components'
 import {TagList} from 'Components/TagList'
 import {Banner} from './Banner'
+import {ROUTES} from 'Routes'
 
 export const Article = ({match}) => {
   const slug = match.params.slug
   const apiUrl = `${PATHS.articles}/${slug}`
-  const [{response, isLoading, error}, doFetch] = useFetch(apiUrl)
+  const [
+    {
+      response: fetchArticleResponse,
+      isLoading: fetchArticleIsLoading,
+      error: fetchArticleError,
+    },
+    doFetchArticle,
+  ] = useFetch(apiUrl)
+  const [{response: deleteArticleResponse}, doDeleteArticle] = useFetch(apiUrl)
+  const [isSuccessfullDelete, setIsSuccessfullDelete] = useState(false)
+
+  const deleteArticle = () => {
+    doDeleteArticle({
+      method: 'delete',
+    })
+  }
 
   useEffect(() => {
-    doFetch()
-  }, [doFetch])
+    doFetchArticle()
+  }, [doFetchArticle])
+
+  useEffect(() => {
+    if (deleteArticleResponse === null) {
+      return
+    }
+
+    setIsSuccessfullDelete(true)
+  }, [deleteArticleResponse])
+
+  if (isSuccessfullDelete) {
+    return <Redirect to={ROUTES.main} />
+  }
 
   return (
     <div className="article-page">
-      {!isLoading && response && <Banner article={response.article} />}
+      {!fetchArticleIsLoading && fetchArticleResponse && (
+        <Banner
+          article={fetchArticleResponse.article}
+          deleteArticle={deleteArticle}
+        />
+      )}
 
       <div className="container page">
-        {isLoading && <Loading />}
-        {error && <ErrorMessage />}
+        {fetchArticleIsLoading && <Loading />}
+        {fetchArticleError && <ErrorMessage />}
 
-        {!isLoading && response && (
+        {!fetchArticleIsLoading && fetchArticleResponse && (
           <div className="row article-content">
             <div className="col-xs-12">
               <div>
-                <p>{response.article.body}</p>
+                <p>{fetchArticleResponse.article.body}</p>
               </div>
 
-              <TagList tags={response.article.tagList} />
+              <TagList tags={fetchArticleResponse.article.tagList} />
             </div>
           </div>
         )}

@@ -34,4 +34,8 @@ export const en = {
     tagListPlaceholder: 'Enter tags',
     submitButton: 'Publish Article',
   },
+  article: {
+    edit: 'Edit Article',
+    delete: 'Delete Article',
+  },
 }
