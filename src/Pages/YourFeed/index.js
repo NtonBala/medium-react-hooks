@@ -31,8 +31,8 @@ export const YourFeed = ({location}) => {
           <div className="col-md-9">
             <FeedToggler />
 
-            {isLoading && <Loading />}
-            {error && <ErrorMessage />}
+            {isLoading && <Loading className="article-preview" />}
+            {error && <ErrorMessage className="article-preview" />}
             {!isLoading && response && (
               <>
                 <Feed articles={response.articles} />

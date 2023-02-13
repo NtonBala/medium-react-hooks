@@ -45,8 +45,8 @@ export const TagFeed = ({location, match}) => {
           <div className="col-md-9">
             <FeedToggler tagName={tagName} />
 
-            {isLoading && <Loading />}
-            {error && <ErrorMessage />}
+            {isLoading && <Loading className="article-preview" />}
+            {error && <ErrorMessage className="article-preview" />}
             {!isLoading && response && (
               <>
                 <Feed articles={response.articles} />
