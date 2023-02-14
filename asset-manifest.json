@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.js": "/medium-react-hooks/static/js/main.f28db40f.chunk.js",
-    "main.js.map": "/medium-react-hooks/static/js/main.f28db40f.chunk.js.map",
+    "main.js": "/medium-react-hooks/static/js/main.f3e9a488.chunk.js",
+    "main.js.map": "/medium-react-hooks/static/js/main.f3e9a488.chunk.js.map",
     "runtime-main.js": "/medium-react-hooks/static/js/runtime-main.ed85d49a.js",
     "runtime-main.js.map": "/medium-react-hooks/static/js/runtime-main.ed85d49a.js.map",
     "static/js/2.a8c5e7d1.chunk.js": "/medium-react-hooks/static/js/2.a8c5e7d1.chunk.js",
     "static/js/2.a8c5e7d1.chunk.js.map": "/medium-react-hooks/static/js/2.a8c5e7d1.chunk.js.map",
     "index.html": "/medium-react-hooks/index.html",
-    "precache-manifest.fa3526d4fedb4ea91c9627c945342f54.js": "/medium-react-hooks/precache-manifest.fa3526d4fedb4ea91c9627c945342f54.js",
+    "precache-manifest.2cfbbf640fe74bb9ad7935ab329dcfd0.js": "/medium-react-hooks/precache-manifest.2cfbbf640fe74bb9ad7935ab329dcfd0.js",
     "service-worker.js": "/medium-react-hooks/service-worker.js",
     "static/js/2.a8c5e7d1.chunk.js.LICENSE.txt": "/medium-react-hooks/static/js/2.a8c5e7d1.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.ed85d49a.js",
     "static/js/2.a8c5e7d1.chunk.js",
-    "static/js/main.f28db40f.chunk.js"
+    "static/js/main.f3e9a488.chunk.js"
   ]
 }
