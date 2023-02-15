@@ -10,6 +10,7 @@ import {
   YourFeed,
   CreateArticle,
   EditArticle,
+  Settings,
 } from 'Pages'
 import {ROUTES} from './constants'
 import {PrivateRoute} from 'HOCs'
@@ -18,6 +19,7 @@ export const Routes = () => {
   return (
     <Switch>
       <Route path={ROUTES.main} component={GlobalFeed} exact />
+      <PrivateRoute path={ROUTES.settings} component={Settings} />
       <PrivateRoute path={ROUTES.newArticle} component={CreateArticle} />
       <PrivateRoute
         path={`${ROUTES.articles}/:slug/edit`}

@@ -14,6 +14,7 @@ export const en = {
     globalFeed: 'Global feed',
     noArticlesYet: 'No articles are here... yet.',
     readMore: 'Read more...',
+    settings: 'Settings',
   },
   auth: {
     needAccount: 'Need an account?',
@@ -37,5 +38,12 @@ export const en = {
   article: {
     edit: 'Edit Article',
     delete: 'Delete Article',
+  },
+  settings: {
+    title: 'Your settings',
+    profilePicturePlaceholder: 'URL of profile picture',
+    bioPlaceholder: 'Short bio',
+    update: 'Update settings',
+    logout: 'Or click here to logout',
   },
 }

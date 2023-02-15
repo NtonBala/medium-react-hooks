@@ -50,6 +50,12 @@ export const TopBar = () => {
                 </NavLink>
               </li>
               <li className="nav-item">
+                <NavLink to={ROUTES.settings} className="nav-link">
+                  <i className="ion-gear-a"></i>
+                  &nbsp; {t('common.settings')}
+                </NavLink>
+              </li>
+              <li className="nav-item">
                 <NavLink
                   to={`${ROUTES.profiles}/${currentUser.username}`}
                   className="nav-link"

@@ -7,4 +7,5 @@ export const ROUTES = Object.freeze({
   profiles: '/profiles',
   tags: '/tags',
   feed: '/feed',
+  settings: '/settings',
 })
