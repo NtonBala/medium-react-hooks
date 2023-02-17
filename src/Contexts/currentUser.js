@@ -9,6 +9,7 @@ const initialState = {
 export const LOADING = 'LOADING'
 export const SET_AUTHORIZED = 'SET_AUTHORIZED'
 export const SET_UNAUTHORIZED = 'SET_UNAUTHORIZED'
+export const LOGOUT = 'LOGOUT'
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -23,6 +24,8 @@ const reducer = (state, action) => {
       }
     case SET_UNAUTHORIZED:
       return {...state, isLoggedIn: false}
+    case LOGOUT:
+      return {...initialState, isLoggedIn: false}
     default:
       return state
   }

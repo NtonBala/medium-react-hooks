@@ -1,4 +1,4 @@
-# Medium clone on React Hooks
+# Medium clone on React hooks
 
 This project relates to [Monster Lessons React Hooks course](https://monsterlessons.com/project/series/react-hooks-pishem-realnyj-proekt-s-nulya) and is Medium clone built with React Hooks on [demo.productionready.io](https://demo.productionready.io/) example.
 
