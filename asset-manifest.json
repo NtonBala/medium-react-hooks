@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.js": "/medium-react-hooks/static/js/main.51c95d5e.chunk.js",
-    "main.js.map": "/medium-react-hooks/static/js/main.51c95d5e.chunk.js.map",
+    "main.js": "/medium-react-hooks/static/js/main.ac71a122.chunk.js",
+    "main.js.map": "/medium-react-hooks/static/js/main.ac71a122.chunk.js.map",
     "runtime-main.js": "/medium-react-hooks/static/js/runtime-main.ed85d49a.js",
     "runtime-main.js.map": "/medium-react-hooks/static/js/runtime-main.ed85d49a.js.map",
-    "static/js/2.a8c5e7d1.chunk.js": "/medium-react-hooks/static/js/2.a8c5e7d1.chunk.js",
-    "static/js/2.a8c5e7d1.chunk.js.map": "/medium-react-hooks/static/js/2.a8c5e7d1.chunk.js.map",
+    "static/js/2.bacfc596.chunk.js": "/medium-react-hooks/static/js/2.bacfc596.chunk.js",
+    "static/js/2.bacfc596.chunk.js.map": "/medium-react-hooks/static/js/2.bacfc596.chunk.js.map",
     "index.html": "/medium-react-hooks/index.html",
-    "precache-manifest.7d380735d388f44aeae5161dbee6ff31.js": "/medium-react-hooks/precache-manifest.7d380735d388f44aeae5161dbee6ff31.js",
+    "precache-manifest.374a6fab01fed0062e7017d4c60f20ac.js": "/medium-react-hooks/precache-manifest.374a6fab01fed0062e7017d4c60f20ac.js",
     "service-worker.js": "/medium-react-hooks/service-worker.js",
-    "static/js/2.a8c5e7d1.chunk.js.LICENSE.txt": "/medium-react-hooks/static/js/2.a8c5e7d1.chunk.js.LICENSE.txt"
+    "static/js/2.bacfc596.chunk.js.LICENSE.txt": "/medium-react-hooks/static/js/2.bacfc596.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.ed85d49a.js",
-    "static/js/2.a8c5e7d1.chunk.js",
-    "static/js/main.51c95d5e.chunk.js"
+    "static/js/2.bacfc596.chunk.js",
+    "static/js/main.ac71a122.chunk.js"
   ]
 }
