@@ -3,10 +3,19 @@ import {Link} from 'react-router-dom'
 import {useTranslation} from 'react-i18next'
 
 import {ROUTES} from 'Routes'
-import {TagList} from 'Components/TagList'
+import {TagList, AddToFavorites} from 'Components'
 
 export const ArticlePreview = ({
-  article: {author, createdAt, slug, title, description, tagList},
+  article: {
+    author,
+    createdAt,
+    slug,
+    title,
+    description,
+    tagList,
+    favorited,
+    favoritesCount,
+  },
 }) => {
   const {t} = useTranslation()
 
@@ -23,6 +32,14 @@ export const ArticlePreview = ({
           </Link>
 
           <span className="date">{createdAt}</span>
+        </div>
+
+        <div className="pull-xs-right">
+          <AddToFavorites
+            isFavorite={favorited}
+            favoritesCount={favoritesCount}
+            articleSlug={slug}
+          />
         </div>
       </div>
 
