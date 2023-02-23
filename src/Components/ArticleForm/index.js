@@ -13,7 +13,12 @@ export const ArticleForm = ({onSubmit, errors, initialValues}) => {
   const handleSubmit = e => {
     e.preventDefault()
 
-    onSubmit({title, description, body, tagList: tagList.split(' ')})
+    onSubmit({
+      title,
+      description,
+      body,
+      tagList: tagList.length > 0 ? tagList.split(' ') : [],
+    })
   }
 
   useEffect(() => {
