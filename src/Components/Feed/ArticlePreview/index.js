@@ -1,9 +1,10 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import {Link} from 'react-router-dom'
 import {useTranslation} from 'react-i18next'
 
 import {ROUTES} from 'Routes'
 import {TagList, AddToFavorites} from 'Components'
+import {CurrentUserContext} from 'Contexts'
 
 export const ArticlePreview = ({
   article: {
@@ -18,6 +19,7 @@ export const ArticlePreview = ({
   },
 }) => {
   const {t} = useTranslation()
+  const [currentUserState] = useContext(CurrentUserContext)
 
   return (
     <div className="article-preview">
@@ -34,13 +36,15 @@ export const ArticlePreview = ({
           <span className="date">{createdAt}</span>
         </div>
 
-        <div className="pull-xs-right">
-          <AddToFavorites
-            isFavorite={favorited}
-            favoritesCount={favoritesCount}
-            articleSlug={slug}
-          />
-        </div>
+        {currentUserState.isLoggedIn && (
+          <div className="pull-xs-right">
+            <AddToFavorites
+              isFavorite={favorited}
+              favoritesCount={favoritesCount}
+              articleSlug={slug}
+            />
+          </div>
+        )}
       </div>
 
       <Link to={`${ROUTES.articles}/${slug}`} className="preview-link">
