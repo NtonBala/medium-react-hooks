@@ -18,6 +18,8 @@ Project is localized with [react-i18next](https://locize.com/blog/react-i18next/
 
 It was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Project package manager is `yarn`.
+
 ## Available Scripts
 
 In the project directory, you can run:

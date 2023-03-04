@@ -9,3 +9,5 @@ export const ROUTES = Object.freeze({
   feed: '/feed',
   settings: '/settings',
 })
+
+export const EDIT = 'edit'

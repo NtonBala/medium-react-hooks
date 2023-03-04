@@ -2,7 +2,7 @@ import React, {useContext} from 'react'
 import {Link} from 'react-router-dom'
 import {useTranslation} from 'react-i18next'
 
-import {ROUTES} from 'Routes'
+import {ROUTES, EDIT} from 'Routes'
 import {CurrentUserContext} from 'Contexts'
 
 export const Banner = ({
@@ -37,7 +37,7 @@ export const Banner = ({
             <span>
               <Link
                 className="btn btn-outline-secondary btn-sm"
-                to={`${ROUTES.articles}/${slug}/edit`}
+                to={`${ROUTES.articles}/${slug}/${EDIT}`}
               >
                 <i className="ion-edit" />
                 &nbsp;

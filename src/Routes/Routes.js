@@ -12,7 +12,7 @@ import {
   EditArticle,
   Settings,
 } from 'Pages'
-import {ROUTES} from './constants'
+import {ROUTES, EDIT} from './constants'
 import {PrivateRoute} from 'HOCs'
 
 export const Routes = () => {
@@ -22,7 +22,7 @@ export const Routes = () => {
       <PrivateRoute path={ROUTES.settings} component={Settings} />
       <PrivateRoute path={ROUTES.newArticle} component={CreateArticle} />
       <PrivateRoute
-        path={`${ROUTES.articles}/:slug/edit`}
+        path={`${ROUTES.articles}/:slug/${EDIT}`}
         component={EditArticle}
       />
       <PrivateRoute path={ROUTES.feed} component={YourFeed} />
