@@ -5,4 +5,5 @@ export const PATHS = Object.freeze({
   articles: '/articles',
   tags: '/tags',
   feed: '/articles/feed',
+  profiles: '/profiles',
 })

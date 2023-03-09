@@ -11,3 +11,4 @@ export const ROUTES = Object.freeze({
 })
 
 export const EDIT = 'edit'
+export const FAVORITES = 'favorites'

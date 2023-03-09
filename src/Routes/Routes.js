@@ -11,14 +11,21 @@ import {
   CreateArticle,
   EditArticle,
   Settings,
+  UserProfile,
 } from 'Pages'
-import {ROUTES, EDIT} from './constants'
+import {ROUTES, EDIT, FAVORITES} from './constants'
 import {PrivateRoute} from 'HOCs'
 
 export const Routes = () => {
   return (
     <Switch>
       <Route path={ROUTES.main} component={GlobalFeed} exact />
+      <Route path={`${ROUTES.profiles}/:slug`} component={UserProfile} exact />
+      <Route
+        path={`${ROUTES.profiles}/:slug/${FAVORITES}`}
+        component={UserProfile}
+        exact
+      />
       <PrivateRoute path={ROUTES.settings} component={Settings} />
       <PrivateRoute path={ROUTES.newArticle} component={CreateArticle} />
       <PrivateRoute

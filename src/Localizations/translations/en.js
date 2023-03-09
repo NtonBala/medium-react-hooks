@@ -46,4 +46,8 @@ export const en = {
     update: 'Update settings',
     logout: 'Or click here to logout',
   },
+  profile: {
+    posts: 'My Posts',
+    favorites: 'Favorites Posts',
+  },
 }
