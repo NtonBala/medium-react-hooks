@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useContext} from 'react'
 import {useTranslation} from 'react-i18next'
 import {stringify} from 'query-string'
 
@@ -14,6 +14,7 @@ import {
   FeedToggler,
 } from 'Components'
 import {getPaginator} from 'Utils'
+import {CurrentUserContext} from 'Contexts'
 
 export const TagFeed = ({location, match}) => {
   const {t} = useTranslation()
@@ -26,6 +27,7 @@ export const TagFeed = ({location, match}) => {
   })
   const apiUrl = `${PATHS.articles}?${stringifiedParams}`
   const [{response, isLoading, error}, doFetch] = useFetch(apiUrl)
+  const [currentUserState] = useContext(CurrentUserContext)
 
   useEffect(() => {
     doFetch()
@@ -33,12 +35,14 @@ export const TagFeed = ({location, match}) => {
 
   return (
     <div className="home-page">
-      <div className="banner">
-        <div className="container">
-          <h1>{t('globalFeed.bannerTitle')}</h1>
-          <p>{t('globalFeed.bannerDescription')}</p>
+      {currentUserState.isLoggedIn === false && (
+        <div className="banner">
+          <div className="container">
+            <h1>{t('globalFeed.bannerTitle')}</h1>
+            <p>{t('globalFeed.bannerDescription')}</p>
+          </div>
         </div>
-      </div>
+      )}
 
       <div className="container page">
         <div className="row">
