@@ -1,5 +1,4 @@
 import React, {useEffect, useContext} from 'react'
-import {useTranslation} from 'react-i18next'
 import {stringify} from 'query-string'
 
 import {ARTICLES_LIMIT} from 'Constants'
@@ -12,12 +11,12 @@ import {
   Loading,
   ErrorMessage,
   FeedToggler,
+  Banner,
 } from 'Components'
 import {getPaginator} from 'Utils'
 import {CurrentUserContext} from 'Contexts'
 
 export const TagFeed = ({location, match}) => {
-  const {t} = useTranslation()
   const tagName = match.params.slug
   const {currentPage, offset} = getPaginator(location.search, ARTICLES_LIMIT)
   const stringifiedParams = stringify({
@@ -35,14 +34,7 @@ export const TagFeed = ({location, match}) => {
 
   return (
     <div className="home-page">
-      {currentUserState.isLoggedIn === false && (
-        <div className="banner">
-          <div className="container">
-            <h1>{t('globalFeed.bannerTitle')}</h1>
-            <p>{t('globalFeed.bannerDescription')}</p>
-          </div>
-        </div>
-      )}
+      {currentUserState.isLoggedIn === false && <Banner />}
 
       <div className="container page">
         <div className="row">
