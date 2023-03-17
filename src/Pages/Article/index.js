@@ -5,7 +5,7 @@ import {useFetch} from 'Hooks'
 import {PATHS} from 'API'
 import {Loading, ErrorMessage} from 'Components'
 import {TagList} from 'Components/TagList'
-import {Banner} from './Banner'
+import {ArticleBanner} from './components'
 import {ROUTES} from 'Routes'
 
 export const Article = ({match}) => {
@@ -47,7 +47,7 @@ export const Article = ({match}) => {
   return (
     <div className="article-page">
       {!fetchArticleIsLoading && fetchArticleResponse && (
-        <Banner
+        <ArticleBanner
           article={fetchArticleResponse.article}
           deleteArticle={deleteArticle}
         />

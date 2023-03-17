@@ -4,8 +4,7 @@ import {FAVORITES} from 'Routes'
 import {PATHS} from 'API'
 import {useFetch} from 'Hooks'
 
-import {UserInfo} from './UserInfo'
-import {ArticlesToggle} from './ArticlesToggle'
+import {UserInfo, ArticlesToggle, UserArticles} from './components'
 
 export const UserProfile = ({location, match}) => {
   const slug = match.params.slug
@@ -29,7 +28,11 @@ export const UserProfile = ({location, match}) => {
         <div className="row">
           <div className="col-xs-12 col-md-10 offset-md-1">
             <ArticlesToggle username={response.profile.username} />
-            User Articles
+            <UserArticles
+              username={response.profile.username}
+              location={location}
+              isFavorites={isFavorites}
+            />
           </div>
         </div>
       </div>

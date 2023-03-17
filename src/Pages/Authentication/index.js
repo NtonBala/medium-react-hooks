@@ -6,7 +6,7 @@ import {ROUTES} from 'Routes'
 import {PATHS} from 'API'
 import {BackendErrorMessages} from 'Components'
 
-import {Heading} from './Heading'
+import {Heading} from './components'
 import {useAuthentication} from './hooks'
 
 export const Authentication = props => {

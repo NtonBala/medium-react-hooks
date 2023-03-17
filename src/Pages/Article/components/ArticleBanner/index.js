@@ -5,7 +5,7 @@ import {useTranslation} from 'react-i18next'
 import {ROUTES, EDIT} from 'Routes'
 import {CurrentUserContext} from 'Contexts'
 
-export const Banner = ({
+export const ArticleBanner = ({
   article: {title, author, createdAt, slug},
   deleteArticle,
 }) => {
