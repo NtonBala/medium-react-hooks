@@ -15,7 +15,7 @@ import {
 import {getPaginator} from 'Utils'
 
 export const YourFeed = ({location}) => {
-  const {currentPage, offset} = getPaginator(location.search, ARTICLES_LIMIT)
+  const {currentPage, offset} = getPaginator(location.search)
   const stringifiedParams = stringify({limit: ARTICLES_LIMIT, offset})
   const apiUrl = `${PATHS.feed}?${stringifiedParams}`
   const [{response, isLoading, error}, doFetch] = useFetch(apiUrl)

@@ -18,7 +18,7 @@ import {CurrentUserContext} from 'Contexts'
 
 export const TagFeed = ({location, match}) => {
   const tagName = match.params.slug
-  const {currentPage, offset} = getPaginator(location.search, ARTICLES_LIMIT)
+  const {currentPage, offset} = getPaginator(location.search)
   const stringifiedParams = stringify({
     limit: ARTICLES_LIMIT,
     offset,
