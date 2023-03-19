@@ -32,6 +32,7 @@ export const UserProfile = ({location, match}) => {
               username={response.profile.username}
               location={location}
               isFavorites={isFavorites}
+              url={match.url}
             />
           </div>
         </div>
