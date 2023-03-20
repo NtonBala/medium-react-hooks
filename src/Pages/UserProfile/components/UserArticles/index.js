@@ -1,19 +1,10 @@
 import React, {useEffect} from 'react'
-import {stringify} from 'query-string'
 
 import {getPaginator} from 'Utils'
 import {ARTICLES_LIMIT} from 'Constants'
-import {PATHS} from 'API'
 import {useFetch} from 'Hooks'
 import {Loading, ErrorMessage, Feed, Pagination} from 'Components'
-
-const getApiUrl = ({username, offset, isFavorites}) => {
-  const params = isFavorites
-    ? {limit: ARTICLES_LIMIT, offset, favorited: username}
-    : {limit: ARTICLES_LIMIT, offset, author: username}
-
-  return `${PATHS.articles}?${stringify(params)}`
-}
+import {getApiUrl} from './utils'
 
 export const UserArticles = ({username, location, isFavorites, url}) => {
   const {offset, currentPage} = getPaginator(location.search)
@@ -26,8 +17,8 @@ export const UserArticles = ({username, location, isFavorites, url}) => {
 
   return (
     <div>
-      {isLoading && <Loading />}
-      {error && <ErrorMessage />}
+      {isLoading && <Loading className="article-preview" />}
+      {error && <ErrorMessage className="article-preview" />}
       {!isLoading && response && (
         <>
           <Feed articles={response.articles} />
