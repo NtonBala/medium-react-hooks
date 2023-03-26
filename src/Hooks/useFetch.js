@@ -17,6 +17,8 @@ export const useFetch = url => {
   }, [])
 
   useEffect(() => {
+    let skipGetResponseAfterUnmount = false
+
     if (!isLoading) return
 
     const requestOptions = {
@@ -28,14 +30,24 @@ export const useFetch = url => {
 
     axios(baseUrl + url, requestOptions)
       .then(res => {
-        setResponse(res.data)
+        if (!skipGetResponseAfterUnmount) {
+          setResponse(res.data)
+        }
       })
       .catch(err => {
-        setError(err.response.data)
+        if (!skipGetResponseAfterUnmount) {
+          setError(err.response.data)
+        }
       })
       .finally(() => {
-        setIsLoading(false)
+        if (!skipGetResponseAfterUnmount) {
+          setIsLoading(false)
+        }
       })
+
+    return () => {
+      skipGetResponseAfterUnmount = true
+    }
   }, [isLoading, options, token, url])
 
   return [{isLoading, response, error}, doFetch]
