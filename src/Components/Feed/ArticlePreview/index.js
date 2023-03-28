@@ -5,6 +5,7 @@ import {useTranslation} from 'react-i18next'
 import {ROUTES} from 'Routes'
 import {TagList, AddToFavorites} from 'Components'
 import {CurrentUserContext} from 'Contexts'
+import {formatDate} from 'Utils'
 
 export const ArticlePreview = ({
   article: {
@@ -33,7 +34,7 @@ export const ArticlePreview = ({
             {author.username}
           </Link>
 
-          <span className="date">{createdAt}</span>
+          <span className="date">{formatDate(createdAt)}</span>
         </div>
 
         {currentUserState.isLoggedIn && (

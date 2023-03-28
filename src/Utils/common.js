@@ -12,3 +12,14 @@ export const getPaginator = (search, limit = ARTICLES_LIMIT) => {
 
   return {currentPage, offset}
 }
+
+export const formatDate = dateString => {
+  const date = new Date(dateString)
+  const formattedDate = date.toLocaleString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  })
+
+  return formattedDate
+}
